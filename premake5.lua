@@ -1,6 +1,7 @@
 project "yaml-cpp"
-  kind "StaticLib"
+  	kind "StaticLib"
 	language "C++"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -35,4 +36,9 @@ project "yaml-cpp"
 
 	filter "configurations:Release"
 		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Distribution"
+		runtime "Release"
+		staticruntime "on"
 		optimize "on"
